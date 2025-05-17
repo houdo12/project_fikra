@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:project_fikra/uploascreen.dart';
+import 'package:project_fikra/uploadscreen.dart';
+import 'package:project_fikra/login_screen.dart';  // Import login screen
 import 'package:provider/provider.dart';
 import 'NoiseRemovalProvider.dart';
 import 'recordingscreen.dart';
@@ -28,10 +29,10 @@ class MainScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ElevatedButton.icon(
-                onPressed: (){
+                onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => recordingscreen()),
+                    MaterialPageRoute(builder: (context) => RecordingScreen()),
                   );
                 },
                 icon: Icon(Icons.mic),
@@ -43,16 +44,28 @@ class MainScreen extends StatelessWidget {
               ),
               SizedBox(height: 20),
               ElevatedButton.icon(
-                onPressed: (){
+                onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => uploadscreen()),
+                    MaterialPageRoute(builder: (context) => UploadScreen()),
                   );
-
-
                 },
                 icon: Icon(Icons.upload_file),
                 label: Text("Upload Audio"),
+                style: ElevatedButton.styleFrom(
+                  minimumSize: Size(double.infinity, 50),
+                  textStyle: TextStyle(fontSize: 18),
+                ),
+              ),
+              SizedBox(height: 40),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => LoginScreen()),
+                  );
+                },
+                child: Text("Se connecter"),
                 style: ElevatedButton.styleFrom(
                   minimumSize: Size(double.infinity, 50),
                   textStyle: TextStyle(fontSize: 18),

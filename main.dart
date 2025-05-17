@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'NoiseRemovalProvider.dart';
 import 'mainscreen.dart';
+import 'login_screen.dart';
+import 'register_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized(); // Ensure initialization for path_provider
@@ -21,8 +23,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Audio Noise Remover',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: MainScreen(), // MainScreen is now wrapped inside the provider context
+      initialRoute: '/login',
+      routes: {
+        '/login': (context) => LoginScreen(),
+        '/register': (context) => RegisterScreen(),
+        '/main': (context) => MainScreen(),
+      },
     );
   }
 }
